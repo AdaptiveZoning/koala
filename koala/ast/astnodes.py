@@ -45,7 +45,7 @@ class ASTNode(object):
     def children(self, ast):
         try:
             args = ast.predecessors(self)
-            args = sorted(args, key=lambda x: ast.node[x]['pos'])
+            args = sorted(args, key=lambda x: ast.nodes[x]['pos'])
         except NetworkXError:
             args = ''
         return args
