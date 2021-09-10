@@ -126,6 +126,12 @@ def average(*args): # Excel reference: https://support.office.com/en-us/article/
 
     return sum(values) / len(values)
 
+def median(*args): # Excel reference: https://support.office.com/en-us/article/AVERAGE-function-047bac88-d466-426c-a32b-8f33eb960cf6
+    # ignore non numeric cells and boolean cells
+    values = extract_numeric_values(*args)
+
+    return np.median(values)
+
 
 def choose(index_num, *values): # Excel reference: https://support.office.com/en-us/article/CHOOSE-function-fc5c184f-cb62-4ec7-a46e-38653b98f5bc
 
