@@ -17,7 +17,7 @@ import os.path
 import networkx
 from networkx.readwrite import json_graph
 
-from openpyxl.compat import unicode
+unicode = str
 
 
 class Spreadsheet(object):

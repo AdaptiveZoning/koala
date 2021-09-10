@@ -4,7 +4,7 @@ from koala.CellBase import CellBase
 from koala.ExcelError import ErrorCodes, ExcelError
 from koala.utils import *
 
-from openpyxl.compat import unicode
+unicode = str
 
 
 # WARNING: Range should never be imported directly. Import Range from excelutils instead.

@@ -3,7 +3,7 @@ from __future__ import print_function
 
 from networkx import NetworkXError
 
-from openpyxl.compat import unicode
+unicode = str
 
 from koala.excellib import FUNCTION_MAP, IND_FUN
 from koala.utils import is_range, split_range, split_address, resolve_range

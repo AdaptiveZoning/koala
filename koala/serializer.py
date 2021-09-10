@@ -7,7 +7,7 @@ import networkx
 from networkx.classes.digraph import DiGraph
 from networkx.readwrite import json_graph
 from networkx.drawing.nx_pydot import write_dot
-from openpyxl.compat import unicode
+unicode = str
 
 from koala.Cell import Cell
 from koala.Range import RangeCore, RangeFactory
