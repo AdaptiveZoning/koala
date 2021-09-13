@@ -54,6 +54,7 @@ IND_FUN = [
     "ARRAYROW",  # see astnodes.py, not defined here
     "ATAN2",  # see astnodes.py, not defined here
     "AVERAGE",
+    "MEDIAN",
     "CHOOSE",
     "COLUMNS",
     "CONCAT",
@@ -858,6 +859,7 @@ def sumifs(*args):
 
 
 def sumproduct(*ranges): # Excel reference: https://support.office.com/en-us/article/SUMPRODUCT-function-16753e75-9f68-4874-94ac-4d2145a2fd2e
+
     range_list = list(ranges)
 
     for r in range_list: # if a range has no values (i.e if it's empty)
@@ -872,7 +874,7 @@ def sumproduct(*ranges): # Excel reference: https://support.office.com/en-us/art
 
     reduce(check_length, range_list) # check that all ranges have the same size
 
-    return reduce(lambda X, Y: X + Y, reduce(lambda x, y: Range.apply_all('multiply', x, y), range_list).values)
+    return np.sum(np.prod(np.vstack([np.array(r.values) for r in range_list]), axis=0))
 
 
 # https://support.office.com/en-ie/article/today-function-5eb3078d-a82c-4736-8930-2f51a028fdd9
